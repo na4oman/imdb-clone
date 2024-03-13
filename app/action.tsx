@@ -21,7 +21,7 @@ export const fetchMovies = async (type: string, page: number) => {
   const data = await response.json()
   // console.log(data)
 
-  return data.results.map((item: MovieProp, index: number) => (
+  return data?.results?.map((item: MovieProp, index: number) => (
     <MovieCard key={item.id} movie={item} index={index} />
   ))
 
@@ -94,7 +94,7 @@ export const fetchTopRatedMovies = async (page: number) => {
   const data = await response.json()
   // console.log(data)
 
-  return data.results.map((item: MovieProp, index: number) => (
+  return data?.results?.map((item: MovieProp, index: number) => (
     <MovieCard key={item.id} movie={item} index={index} />
   ))
 }
