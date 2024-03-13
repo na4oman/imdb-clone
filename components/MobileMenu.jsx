@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/sheet'
 import Image from 'next/image'
 import Link from 'next/link'
-import SearchMovies from './SearchMovies'
 import { ToggleButton } from './ToggleButton'
 import { X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
