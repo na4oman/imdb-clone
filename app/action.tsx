@@ -107,7 +107,7 @@ export const getVideoById = async (id: number) => {
   )
 
   const data = await response.json()
-  const video = await data.results.filter(
+  const video = await data?.results?.filter(
     (video: any) => video.type === 'Trailer'
   )
 
@@ -155,7 +155,7 @@ export const nowPlaying = async (page: number) => {
 
   const data = await response.json()
   // console.log(data)
-  const topMovie = data.results[randomNumber] // Get random movie from the returned array
+  const topMovie = data?.results[randomNumber] // Get random movie from the returned array
   // console.log(topMovie)
   return topMovie
 }
