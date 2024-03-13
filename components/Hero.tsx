@@ -15,15 +15,23 @@ function Hero() {
   useEffect(() => {
     const fetchData = async () => {
       const movie = await nowPlaying(1)
-      const id = await getYoutubeId(movie?.id)
-
-      setVideoId(id)
       setMovie(movie)
     }
 
     fetchData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    if (movie) {
+      getYoutubeId(movie?.id).then(id => {
+        setVideoId(id)
+      })
+    }
+  }, [movie])
+
+  // console.log(movie)
+  // console.log(videoId)
 
   const opts = {
     height: '100%',
@@ -40,9 +48,9 @@ function Hero() {
     })
     .filter(name => name !== null)
 
-  const handleMovie = (fetchedMovie: any) => {
-    setMovie(fetchedMovie)
-  }
+  // const handleMovie = (fetchedMovie: any) => {
+  //   setMovie(fetchedMovie)
+  // }
 
   // console.log(movie)
 
